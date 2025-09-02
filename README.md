@@ -46,9 +46,52 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 
 agriculture-frontend/
 ├── src/
+
 │   ├── components/   # Reusable UI components
+
 │   ├── pages/        # Page-level views
+
 │   ├── assets/       # Images, icons, static files
+|   |
 │   ├── styles/       # Global/Tailwind styles
+
 │   └── utils/        # Helper functions
 └── package.json
+
+**🤝 Contributing**
+
+Contributions are welcome! 🎉
+
+🐛 How to Solve an Issue
+
+1. Go to the Issues tab
+2. Pick an open issue (or create one if you found a bug).
+3. make a new branch as described below.
+4. Follow it and push it.
+
+**🧑‍💻 Git Basics for Beginners**
+
+Here are the most common commands you’ll need:
+
+1. Check status of your repo
+```bash
+git status
+```
+2. Create a new branch (before coding)
+```bash
+git checkout -b feature/my-feature
+```
+3. Stage changes
+```bash
+git add .
+```
+4. Commit changes
+```bash
+git commit -m "feat: add new navbar component"
+```
+5. Push your branch to GitHub
+```bash
+git push origin feature/my-feature
+```
+
+# Happy Codding 😇
