@@ -19,10 +19,6 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white`}>
             <span className="text-[#915EFF]">Green Guardian</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Make Farming <span className="text-[#915EFF]">Smart and Easy </span> <br className='sm:block hidden' />
-            {/* <AnimatedText text="A new digital solution for farmers" /> */}
-          </p>
         </div>
       </div>
 
