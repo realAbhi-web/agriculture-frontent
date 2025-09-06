@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  cursor: none;
+}
+
 * {
   margin: 0;
   padding: 0;
