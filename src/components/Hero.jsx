@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import AnimatedText from "./AnimatedText";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
@@ -20,7 +21,7 @@ const Hero = () => {
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             Make Farming <span className="text-[#915EFF]">Smart and Easy </span> <br className='sm:block hidden' />
-            A new digital solution for farmers"
+            {/* <AnimatedText text="A new digital solution for farmers" /> */}
           </p>
         </div>
       </div>

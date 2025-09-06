@@ -11,6 +11,7 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import AnimatedText from "./AnimatedText";
 
 const ExperienceCard = ({ experience }) => {
   return (
@@ -33,12 +34,12 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className='text-white text-[24px] font-bold'> <AnimatedText text={experience.title} /> </h3>
         <p
           className='text-secondary text-[16px] font-semibold'
           style={{ margin: 0 }}
         >
-          {experience.company_name}
+          <AnimatedText text={experience.company_name} />
         </p>
       </div>
 
@@ -64,7 +65,7 @@ const Experience = () => {
           Timeline
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Our Journey So Far.
+          <AnimatedText text="Our Journey So Far." />
         </h2>
       </motion.div>
 

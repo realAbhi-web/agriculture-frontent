@@ -4,8 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.victor-mono-unique {
+  font-family: "Victor Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
 body{
   cursor: none;
+}
+
+.char {
+  display: inline-block; /* allows transform */
+  transition: transform 0.1s ease;
+  letter-spacing: 0.02em;
+
+
 }
 
 * {
