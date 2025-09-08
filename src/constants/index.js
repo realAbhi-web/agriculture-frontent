@@ -25,96 +25,39 @@ import {
   threejs,
 } from "../assets";
 
+// Navigation links
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "work", title: "Work" },
+  { id: "contact", title: "Contact" },
 ];
 
-const services = [
-  {
-    title: "About Surbhi",
-    icon: web,
-  },
-  {
-    title: "About Nishant",
-    icon: mobile,
-  },
-  {
-    title: "About Pritul",
-    icon: backend,
-  },
-  {
-    title: "About Shivani",
-    icon: creator,
-  },
+// Services data
+export const services = [
+  { title: "About Surbhi", icon: web, description: "Surbhi is a frontend developer who loves UI/UX." },
+  { title: "About Nishant", icon: mobile, description: "Nishant focuses on mobile-first design and apps." },
+  { title: "About Pritul", icon: backend, description: "Pritul handles backend APIs and server logic." },
+  { title: "About Shivani", icon: creator, description: "Shivani is a content creator and designer." },
 ];
 
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+// Other constants
+export const technologies = [
+  { name: "HTML 5", icon: html },
+  { name: "CSS 3", icon: css },
+  { name: "JavaScript", icon: javascript },
+  { name: "TypeScript", icon: typescript },
+  { name: "React JS", icon: reactjs },
+  { name: "Redux Toolkit", icon: redux },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Node JS", icon: nodejs },
+  { name: "MongoDB", icon: mongodb },
+  { name: "Three JS", icon: threejs },
+  { name: "git", icon: git },
+  { name: "figma", icon: figma },
+  { name: "docker", icon: docker },
 ];
 
-const experiences = [
+export const experiences = [
   {
     title: "Frontend Kickoff",
     company_name: "Contributed By Surbhi and Nishant",
@@ -165,7 +108,7 @@ const experiences = [
   },
 ];
 
-const testimonials = [
+export const testimonials = [
   {
     testimonial:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
@@ -192,24 +135,15 @@ const testimonials = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
     name: "Car Rent",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "mongodb", color: "green-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
     ],
     image: carrent,
     source_code_link: "https://github.com/",
@@ -219,18 +153,9 @@ const projects = [
     description:
       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "restapi", color: "green-text-gradient" },
+      { name: "scss", color: "pink-text-gradient" },
     ],
     image: jobit,
     source_code_link: "https://github.com/",
@@ -240,22 +165,11 @@ const projects = [
     description:
       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "supabase", color: "green-text-gradient" },
+      { name: "css", color: "pink-text-gradient" },
     ],
     image: tripguide,
     source_code_link: "https://github.com/",
   },
 ];
-
-export { services, technologies, experiences, testimonials, projects };
