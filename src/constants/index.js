@@ -44,18 +44,22 @@ const services = [
   {
     title: "About Surbhi",
     icon: web,
+    description: "Surbhi works on frontend design and user experience, ensuring clean and modern interfaces.",
   },
   {
     title: "About Nishant",
     icon: mobile,
+    description: "Nishant specializes in mobile and responsive development, making apps accessible to everyone.",
   },
   {
     title: "About Pritul",
     icon: backend,
+    description: "Pritul handles backend and APIs, building scalable and efficient solutions for agriculture tech.",
   },
   {
     title: "About Shivani",
     icon: creator,
+    description: "Shivani focuses on AI and creative features, driving innovation in sustainable farming.",
   },
 ];
 
