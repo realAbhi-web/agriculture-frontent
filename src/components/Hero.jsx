@@ -17,10 +17,10 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            <span className="text-[#915EFF]">Green Guardian</span>
+            <span className="text-green-500">Green Guardian</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Make Farming <span className="text-[#915EFF]">Smart and Easy </span> <br className='sm:block hidden' />
+            Make Farming <span className="text-green-500">Smart and Easy </span> <br className='sm:block hidden' />
             {/* <AnimatedText text="A new digital solution for farmers" /> */}
           </p>
         </div>
