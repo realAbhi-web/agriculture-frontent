@@ -42,23 +42,35 @@ export const navLinks = [
 
 const services = [
   {
-    title: "About Surbhi",
+    title: "About Abhinandan",
     icon: web,
-    description: "Surbhi works on frontend design and user experience, ensuring clean and modern interfaces.",
+    description: "Abhinandan works on frontend design and user experience, ensuring clean and modern interfaces.",
   },
   {
     title: "About Nishant",
     icon: mobile,
     description: "Nishant specializes in mobile and responsive development, making apps accessible to everyone.",
+    description: "Nishant specializes in mobile and responsive development, making apps accessible to everyone.",
   },
   {
-    title: "About Pritul",
+    title: "About Anmol",
     icon: backend,
-    description: "Pritul handles backend and APIs, building scalable and efficient solutions for agriculture tech.",
+    description: "Anmol handles backend and APIs, building scalable and efficient solutions for agriculture tech.",
+  },
+  {
+    title: "About Divyansh",
+    icon: creator,
+    description: "Divyansh focuses on AI and creative features, driving innovation in sustainable farming.",
+  },
+  {
+    title: "About Neelaksi",
+    icon: creator,
+    description: "Neelaksi focuses on AI and creative features, driving innovation in sustainable farming.",
   },
   {
     title: "About Shivani",
     icon: creator,
+    description: "Shivani focuses on AI and creative features, driving innovation in sustainable farming.",
     description: "Shivani focuses on AI and creative features, driving innovation in sustainable farming.",
   },
 ];
@@ -121,7 +133,7 @@ const technologies = [
 const experiences = [
   {
     title: "Frontend Kickoff",
-    company_name: "Contributed By Surbhi and Nishant",
+    company_name: "Contributed By Neelakshi and Nishant",
     icon: starbucks,
     iconBg: "#E6DEDD",
     date: "Phase 1",
@@ -145,7 +157,7 @@ const experiences = [
   },
   {
     title: "Open Source APIs",
-    company_name: "Contributed By Abhinandan and Pritul",
+    company_name: "Contributed By Abhinandan and Anmol",
     icon: shopify,
     iconBg: "#E6DEDD",
     date: "Phase 3",
@@ -157,7 +169,7 @@ const experiences = [
   },
   {
     title: "ML Dataset Creation",
-    company_name: "Contributed By Pritul and Shivani",
+    company_name: "Contributed By Divyansh",
     icon: meta,
     iconBg: "#E6DEDD",
     date: "Phase 4",
