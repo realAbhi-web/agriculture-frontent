@@ -44,7 +44,7 @@ const About = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}> <AnimatedText text="Overview"/></h2>
+        <h2 className={styles.sectionHeadText}> <AnimatedText text="About Our Team"/></h2>
       </motion.div>
 
       <motion.p

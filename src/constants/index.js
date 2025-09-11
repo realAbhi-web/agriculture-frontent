@@ -134,7 +134,8 @@ const experiences = [
   {
     title: "Frontend Kickoff",
     company_name: "Contributed By Neelakshi and Nishant",
-    icon: starbucks,
+    // icon: starbucks,
+    icon: tesla,
     iconBg: "#E6DEDD",
     date: "Phase 1",
     points: [
@@ -158,7 +159,8 @@ const experiences = [
   {
     title: "Open Source APIs",
     company_name: "Contributed By Abhinandan and Anmol",
-    icon: shopify,
+    // icon: shopify,
+    icon: tesla,
     iconBg: "#E6DEDD",
     date: "Phase 3",
     points: [
@@ -170,7 +172,8 @@ const experiences = [
   {
     title: "ML Dataset Creation",
     company_name: "Contributed By Divyansh",
-    icon: meta,
+    // icon: meta,
+    icon: tesla,
     iconBg: "#E6DEDD",
     date: "Phase 4",
     points: [
