@@ -45,7 +45,7 @@ const Navbar = () => {
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
           {/* 🔹 Changed text beside logo */}
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Green Guardian &nbsp;
+            Agro Connect &nbsp;
             <span className='sm:block hidden'> | Crop prediction</span>
           </p>
         </Link>

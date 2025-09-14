@@ -17,7 +17,7 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            <span className="text-green-500">Green Guardian</span>
+            <span className="text-green-500">Agro Connect</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             Make Farming <span className="text-green-500">Smart and Easy </span> <br className='sm:block hidden' />
