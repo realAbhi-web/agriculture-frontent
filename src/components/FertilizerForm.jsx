@@ -64,7 +64,7 @@ const FertilizerForm = () => {
       className="bg-black-100 p-8 rounded-2xl mb-10"
     >
       <p className={styles.sectionSubText}>Fertilizer Guide</p>
-      <h3 className={styles.sectionHeadText}>Get Recommendations</h3>
+      <h3 className={styles.sectionHeadText}>Fertilizer Recommendations</h3>
 
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-8">
         {/* Crop & Soil Section */}

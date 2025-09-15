@@ -27,22 +27,35 @@ const CropForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const res = await fetch("http://127.0.0.1:8000/api/cropdata/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+try {
+  const res = await fetch("http://127.0.0.1:8000/api/crop-yield/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      area: form.area,
+      item: form.crop, // ✅ map your input field to "item"
+      season: form.season,
+      crop_year: parseInt(form.crop_year), // ✅ ensure number
+      average_rainfall: parseFloat(form.avg_rainfall), // ✅ key name + number
+      pesticides: parseFloat(form.pesticides),
+      annual_rainfall: parseFloat(form.annual_rainfall),
+    }),
+  });
 
-      const data = await res.json();
-      if (data.success) setResponse(data.message || "Data saved successfully!");
-      else setResponse("Error: " + data.error);
-    } catch (error) {
-      console.error(error);
-      setResponse("Error: Could not reach the server.");
-    }
+  const data = await res.json();
 
-    setLoading(false);
+  if (data.success) {
+    setResponse(`Predicted yield: ${data.prediction}`);
+  } else {
+    setResponse("Error: " + data.error);
+  }
+} catch (error) {
+  console.error(error);
+  setResponse("Error: Could not reach the server.");
+}
+
+setLoading(false);
+
     setForm({
       area: "",
       crop: "",
@@ -60,7 +73,7 @@ const CropForm = () => {
       className="bg-black-100 p-8 rounded-2xl mb-10"
     >
       <p className={styles.sectionSubText}>🌾 Crop Data</p>
-      <h3 className={styles.sectionHeadText}>Submit Information</h3>
+      <h3 className={styles.sectionHeadText}>Crop yield Predictor</h3>
 
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-8">
         {/* Soil Information Section */}
