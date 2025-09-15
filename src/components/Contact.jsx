@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -20,6 +20,9 @@ const Contact = () => {
     message: "",
   });
 
+  const [reply, setReply] = useState("");
+
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -32,52 +35,69 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   emailjs
+  //     .send(
+  //       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+  //       import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+  //       {
+  //         from_name: form.name,
+  //         to_name: "JavaScript Mastery",
+  //         from_email: form.email,
+  //         to_email: "sujata@jsmastery.pro",
+  //         message: form.message,
+  //       },
+  //       import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+  //     )
+  //     .then(
+  //       () => {
+  //         setLoading(false);
+  //         alert("Thank you. I will get back to you as soon as possible.");
+
+  //         setForm({
+  //           name: "",
+  //           email: "",
+  //           message: "",
+  //         });
+  //       },
+  //       (error) => {
+  //         setLoading(false);
+  //         console.error(error);
+
+  //         alert("Ahh, something went wrong. Please try again.");
+  //       }
+  //     );
+  // };
+
+  const handleSubmit = async (e) => { 
+    e.preventDefault(); 
     setLoading(true);
-
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "JavaScript Mastery",
-          from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/chat/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: form.name }),
+      });
+      const data = await response.json();
+      if (data.success) setReply(data.reply);
+      else setReply("Error: " + data.error);
+    } catch (error) {
+      console.error(error);
+      setReply("Error: Could not reach the server.");
+    }
+    setLoading(false);
+    setForm({ name: "" });
   };
 
   return (
     <div className="space-y-16">
-      {/* ✅ Fertilizer Form */}
       <FertilizerForm />
 
-      {/* ✅ Crop Form */}
       <CropForm />
 
-      {/* ✅ Rotating Earth + Contact Form */}
       <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
@@ -92,17 +112,17 @@ const Contact = () => {
             className="mt-12 flex flex-col gap-8"
           >
             <label className="flex flex-col">
-              <span className="text-white font-medium mb-4">Your Name</span>
+              <span className="text-white font-medium mb-4">What's on your mind?</span>
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="What's your good name?"
+                placeholder="How to grow watermelon profitably?"
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
             </label>
-            <label className="flex flex-col">
+            {/* <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your email</span>
               <input
                 type="email"
@@ -112,8 +132,8 @@ const Contact = () => {
                 placeholder="What's your web address?"
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
-            </label>
-            <label className="flex flex-col">
+            </label> */}
+            {/* <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Message</span>
               <textarea
                 rows={7}
@@ -123,7 +143,7 @@ const Contact = () => {
                 placeholder="What you want to say?"
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
-            </label>
+            </label> */}
 
             <button
               type="submit"
@@ -131,6 +151,7 @@ const Contact = () => {
             >
               {loading ? "Sending..." : "Send"}
             </button>
+            {reply && <p className="text-white mt-4">{reply}</p>}
           </form>
         </motion.div>
 

@@ -53,19 +53,19 @@ const services = [
     description: "Nishant specializes in mobile and responsive development, making apps accessible to everyone.",
   },
   {
-    title: "About Anmol",
+    title: "About Surbhi",
     icon: backend,
-    description: "Anmol handles backend and APIs, building scalable and efficient solutions for agriculture tech.",
+    description: "Surbhi handles backend and APIs, building scalable and efficient solutions for agriculture tech.",
   },
   {
-    title: "About Divyansh",
+    title: "About Pritul",
     icon: creator,
-    description: "Divyansh focuses on AI and creative features, driving innovation in sustainable farming.",
+    description: "Pritul focuses on AI and creative features, driving innovation in sustainable farming.",
   },
   {
-    title: "About Neelaksi",
+    title: "About Shivani",
     icon: creator,
-    description: "Neelaksi focuses on AI and creative features, driving innovation in sustainable farming.",
+    description: "Shivani focuses on AI and creative features, driving innovation in sustainable farming.",
   },
   {
     title: "About Shivani",
