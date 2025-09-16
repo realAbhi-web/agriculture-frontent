@@ -28,20 +28,41 @@ const FertilizerForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const response = await fetch("http://127.0.0.1:8000/api/fertilizer/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+  setLoading(true);
 
-      const data = await response.json();
-      if (data.success) setRecommendation(data.recommendation);
-      else setRecommendation("Error: " + data.error);
-    } catch (error) {
-      console.error(error);
-      setRecommendation("Error: Could not reach the server.");
-    }
+try {
+  const response = await fetch("http://127.0.0.1:8000/api/fertilizer-recommendation/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+   body: JSON.stringify({
+  temperature: form.temperature,
+  humidity: form.humidity,
+  moisture: form.moisture,
+  soil_type: form.soil,      // ✅ map soil → soil_type
+  crop_type: form.crop,      // ✅ map crop → crop_type
+  nitrogen: form.nitrogen,
+  potassium: form.potassium,
+  phosphorous: form.phosphorus, // ✅ spelling consistent with backend
+}),
+
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  if (data.success) {
+    setRecommendation(data.recommendation);
+  } else {
+    setRecommendation("Error: " + (data.error || "Unknown error"));
+  }
+} catch (error) {
+  console.error(error);
+  setRecommendation("Error: Could not reach the server.");
+}
+
 
     setLoading(false);
     setForm({

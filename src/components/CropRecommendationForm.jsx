@@ -35,9 +35,8 @@ const CropRecommendationForm = () => {
       });
       const data = await res.json();
 
-      if (data?.success) {
-        // expecting API returns { success: true, crop: "Rice" } or message
-        setResult(data.crop || data.message || "Recommendation generated.");
+     if (data?.success) {
+  setResult(data.prediction || data.message || "Recommendation generated.");
       } else {
         setResult("Error: " + (data?.error || "Unexpected response"));
       }
@@ -66,7 +65,7 @@ const CropRecommendationForm = () => {
       className="bg-black-100 p-8 rounded-2xl mb-10"
     >
       <p className={styles.sectionSubText}>Crop Recommendation</p>
-      <h3 className={styles.sectionHeadText}>Predict Best Crop</h3>
+      <h3 className={styles.sectionHeadText}>Crop Recommendation</h3>
 
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-8">
         {/* Nutrients */}
