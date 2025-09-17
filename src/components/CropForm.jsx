@@ -17,6 +17,7 @@ const CropForm = () => {
 
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
+  const [tab, setTab] = useState("manual");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -75,6 +76,7 @@ setLoading(false);
       <p className={styles.sectionSubText}>🌾 Crop Data</p>
       <h3 className={styles.sectionHeadText}>Crop yield Predictor</h3>
 
+      {tab === "manual" && (
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-8">
         {/* Soil Information Section */}
         <div>
@@ -160,6 +162,21 @@ setLoading(false);
 
         {response && <p className="text-white mt-4">{response}</p>}
       </form>
+      )}
+            {tab === "automatic" && (
+        <div className="mt-8">
+          <p className="text-gray-300 mb-4">
+            Automatic mode uses your location to fetch weather & soil data.
+          </p>
+          <button
+            type="button"
+            onClick={() => alert("TODO: hook navigator.geolocation")}
+            className="bg-tertiary py-3 px-6 rounded-xl text-white font-bold"
+          >
+            Use My Location
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 };

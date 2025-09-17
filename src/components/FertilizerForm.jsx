@@ -18,6 +18,7 @@ const FertilizerForm = () => {
 
   const [loading, setLoading] = useState(false);
   const [recommendation, setRecommendation] = useState("");
+   const [tab, setTab] = useState("manual");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,20 +29,41 @@ const FertilizerForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const response = await fetch("http://127.0.0.1:8000/api/fertilizer/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+  setLoading(true);
 
-      const data = await response.json();
-      if (data.success) setRecommendation(data.recommendation);
-      else setRecommendation("Error: " + data.error);
-    } catch (error) {
-      console.error(error);
-      setRecommendation("Error: Could not reach the server.");
-    }
+try {
+  const response = await fetch("http://127.0.0.1:8000/api/fertilizer-recommendation/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+   body: JSON.stringify({
+  temperature: form.temperature,
+  humidity: form.humidity,
+  moisture: form.moisture,
+  soil_type: form.soil,      // ✅ map soil → soil_type
+  crop_type: form.crop,      // ✅ map crop → crop_type
+  nitrogen: form.nitrogen,
+  potassium: form.potassium,
+  phosphorous: form.phosphorus, // ✅ spelling consistent with backend
+}),
+
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  if (data.success) {
+    setRecommendation(data.recommendation);
+  } else {
+    setRecommendation("Error: " + (data.error || "Unknown error"));
+  }
+} catch (error) {
+  console.error(error);
+  setRecommendation("Error: Could not reach the server.");
+}
+
 
     setLoading(false);
     setForm({
@@ -66,6 +88,30 @@ const FertilizerForm = () => {
       <p className={styles.sectionSubText}>Fertilizer Guide</p>
       <h3 className={styles.sectionHeadText}>Fertilizer Recommendations</h3>
 
+            {/* Tab Switch */}
+      <div className="flex border-b border-gray-700 mb-6">
+        <button
+          type="button"
+          onClick={() => setTab("manual")}
+          className={`px-4 py-2 font-medium ${
+            tab === "manual" ? "border-b-2 border-green-500 text-green-500" : "text-gray-400"
+          }`}
+        >
+          Manual
+        </button>
+        <button
+          type="button"
+          onClick={() => setTab("automatic")}
+          className={`px-4 py-2 font-medium ${
+            tab === "automatic" ? "border-b-2 border-green-500 text-green-500" : "text-gray-400"
+          }`}
+        >
+          Automatic
+        </button>
+      </div>
+
+
+      {tab === "manual" && (
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-8">
         {/* Crop & Soil Section */}
         <div>
@@ -157,6 +203,22 @@ const FertilizerForm = () => {
           <p className="text-white mt-4">{recommendation}</p>
         )}
       </form>
+      )}
+          {/* Automatic Mode */}
+      {tab === "automatic" && (
+        <div className="mt-8">
+          <p className="text-gray-300 mb-4">
+            Automatic mode uses your location to fetch weather & soil data.
+          </p>
+          <button
+            type="button"
+            onClick={() => alert("TODO: hook navigator.geolocation")}
+            className="bg-tertiary py-3 px-6 rounded-xl text-white font-bold"
+          >
+            Use My Location
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 };

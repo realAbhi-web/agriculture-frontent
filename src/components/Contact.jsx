@@ -10,6 +10,7 @@ import { slideIn } from "../utils/motion";
 // Import your forms
 import FertilizerForm from "./FertilizerForm";
 import CropForm from "./CropForm";
+import CropRecommendationForm from "./CropRecommendationForm"
 
 
 const Contact = () => {
@@ -94,9 +95,11 @@ const Contact = () => {
 
   return (
     <div className="space-y-16">
-      <FertilizerForm />
+      {/* <CropRecommendationForm/>
 
       <CropForm />
+
+      <FertilizerForm /> */}
 
       <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
         <motion.div
