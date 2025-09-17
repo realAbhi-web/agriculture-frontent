@@ -95,11 +95,11 @@ const Contact = () => {
 
   return (
     <div className="space-y-16">
-      <CropRecommendationForm/>
+      {/* <CropRecommendationForm/>
 
       <CropForm />
 
-      <FertilizerForm />
+      <FertilizerForm /> */}
 
       <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
         <motion.div

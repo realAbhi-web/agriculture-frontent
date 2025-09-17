@@ -9,6 +9,7 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import CustomCursor from './CustomCursor';
+import CameraRig from './CameraRig';
 
 
 export {
@@ -20,6 +21,7 @@ export {
   Works,
   Feedbacks,
   Contact,
+  CameraRig,
   CanvasLoader,
   EarthCanvas, 
   BallCanvas, 

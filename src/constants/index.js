@@ -213,12 +213,12 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Crop Recommendation",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A machine learning–powered web app that recommends the most suitable crop based on soil type, nutrients, and weather conditions using XGBoost for high accuracy.",
     tags: [
       {
-        name: "react",
+        name: "XGBoost",
         color: "blue-text-gradient",
       },
       {
@@ -234,9 +234,9 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "Crop Yield Prediction",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "An AI-based platform that predicts crop yields by analyzing soil, weather, and historical agricultural data, helping farmers plan better and maximize productivity.",
     tags: [
       {
         name: "react",
@@ -255,9 +255,9 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Fertilizer Recommendation",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A decision support system that suggests the best fertilizers based on crop requirements, soil nutrients, and weather, improving yield while reducing costs.",
     tags: [
       {
         name: "nextjs",
