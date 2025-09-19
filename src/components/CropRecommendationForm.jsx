@@ -58,6 +58,8 @@ const CropRecommendationForm = () => {
       humidity: "",
       ph: "",
       rainfall: "",
+      lattitude: "",
+      longitude: ""
     });
 
   return (
