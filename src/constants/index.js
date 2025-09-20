@@ -145,7 +145,7 @@ const experiences = [
     ],
   },
   {
-    title: "surbhi_ghibli Development",
+    title: "Backend Development",
     company_name: "Contributed By Abhinandan",
     icon: tesla,
     iconBg: "#E6DEDD",

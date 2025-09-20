@@ -204,21 +204,81 @@ try {
         )}
       </form>
       )}
-          {/* Automatic Mode */}
-      {tab === "automatic" && (
-        <div className="mt-8">
-          <p className="text-gray-300 mb-4">
-            Automatic mode uses your location to fetch weather & soil data.
-          </p>
-          <button
-            type="button"
-            onClick={() => alert("TODO: hook navigator.geolocation")}
-            className="bg-tertiary py-3 px-6 rounded-xl text-white font-bold"
-          >
-            Use My Location
-          </button>
-        </div>
-      )}
+import { useState } from "react";
+
+{/* Automatic Mode */}
+{tab === "automatic" && (
+  <div className="mt-8">
+    <p className="text-gray-300 mb-4">
+      Automatic mode uses your location to fetch weather & soil data.
+    </p>
+
+    {/* Crop Selection Dropdown */}
+    <div className="mb-4">
+      <label className="block text-gray-400 mb-2 font-semibold">
+        Select Your Crop
+      </label>
+      <select
+        value={selectedCrop}
+        onChange={(e) => setSelectedCrop(e.target.value)}
+        className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600"
+      >
+        <option value="">-- Choose Crop --</option>
+        <option value="Maize">Maize</option>
+        <option value="Wheat">Wheat</option>
+        <option value="Rice">Rice</option>
+        <option value="Sugarcane">Sugarcane</option>
+        <option value="Cotton">Cotton</option>
+        <option value="Barley">Barley</option>
+      </select>
+    </div>
+
+    {/* Use My Location Button */}
+    <button
+      type="button"
+      onClick={() => {
+        if (!selectedCrop) {
+          alert("⚠️ Please select a crop first!");
+          return;
+        }
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            async (pos) => {
+              const { latitude, longitude } = pos.coords;
+
+              try {
+                const res = await fetch(
+                  `http://127.0.0.1:8000/api/auto-fertilizer-recommendation/${latitude}/${longitude}/${selectedCrop}/`
+                );
+                const data = await res.json();
+
+                if (data.success) {
+                  alert(`✅ Recommended Fertilizer: ${data.recommendation}`);
+                } else {
+                  alert(`⚠️ Error: ${data.error}`);
+                }
+              } catch (err) {
+                console.error("API error:", err);
+                alert("❌ Failed to fetch fertilizer recommendation.");
+              }
+            },
+            (err) => {
+              console.error("Geolocation error:", err);
+              alert("❌ Could not get location: " + err.message);
+            }
+          );
+        } else {
+          alert("⚠️ Geolocation not supported by your browser.");
+        }
+      }}
+      className="bg-tertiary py-3 px-6 rounded-xl text-white font-bold"
+    >
+      Use My Location
+    </button>
+  </div>
+)}
+
     </motion.div>
   );
 };

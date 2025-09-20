@@ -199,21 +199,50 @@ const CropRecommendationForm = () => {
         </form>
       )}
 
-      {/* Automatic Mode */}
-      {tab === "automatic" && (
-        <div className="mt-8">
-          <p className="text-gray-300 mb-4">
-            Automatic mode uses your location to fetch weather & soil data.
-          </p>
-          <button
-            type="button"
-            onClick={() => alert("TODO: hook navigator.geolocation")}
-            className="bg-tertiary py-3 px-6 rounded-xl text-white font-bold"
-          >
-            Use My Location
-          </button>
-        </div>
-      )}
+{/* Automatic Mode */}
+{tab === "automatic" && (
+  <div className="mt-8">
+    <p className="text-gray-300 mb-4">
+      Automatic mode uses your location to fetch weather & soil data.
+    </p>
+    <button
+      type="button"
+      onClick={() => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            async (pos) => {
+              const { latitude, longitude } = pos.coords;
+
+              try {
+                const res = await fetch(
+                  `http://127.0.0.1:8000/api/auto-crop-recommendation/${latitude}/${longitude}/`
+                );
+                const data = await res.json();
+                console.log("Crop Recommendation:", data);
+
+                // Example: you can show the result inside your form state
+                alert(`Recommended Crop: ${data.prediction}`);
+              } catch (err) {
+                console.error("API error:", err);
+                alert("Failed to fetch crop recommendation");
+              }
+            },
+            (err) => {
+              console.error("Geolocation error:", err);
+              alert("Could not get location: " + err.message);
+            }
+          );
+        } else {
+          alert("Geolocation not supported by your browser.");
+        }
+      }}
+      className="bg-tertiary py-3 px-6 rounded-xl text-white font-bold"
+    >
+      Use My Location
+    </button>
+  </div>
+)}
+
     </motion.div>
   );
 };
